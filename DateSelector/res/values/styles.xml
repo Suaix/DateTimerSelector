@@ -1,0 +1,150 @@
+<resources>
+
+    <style name="AppBaseTheme" parent="android:Theme.Light"></style>
+
+    <style name="AppTheme" parent="AppBaseTheme"></style>
+    <!-- 自定义Dialog中button的样式 -->
+    <style name="dialog_btn">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">36dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:background">@drawable/btn_selector</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <!-- 自定义Dialog在显示时的样式 -->
+    <style name="dialog_tran" parent="android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:backgroundDimAmount">0.4</item>
+    </style>
+    <!-- 自定义Dialog在初始化时的样式 -->
+    <style name="dialog_untran" parent="dialog_tran">
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+    <!-- 自定义Dialog中标题的样式 -->
+    <style name="DialogWindowTitle">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/text_color</item>
+    </style>
+
+    <style name="tip_dialog">
+
+        <!-- 边框 -->
+        <item name="android:windowFrame">@null</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 无标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 模糊 -->
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <!-- 背景透明 -->
+        <item name="android:windowBackground">@color/black_more_half</item>
+    </style>
+	<!-- 小浅黑色字体 -->
+	<style name="FontStyleNormalLightBlackSmall"  parent="@android:style/TextAppearance">
+	    <item name="android:textStyle">normal</item>
+	    <item name="android:textColor">@color/home_text_light_black</item>
+	    <item name="android:textSize">12sp</item>
+	</style>
+	
+    <!-- 小中浅黑色字体 -->
+	<style name="FontStyleNormalLightBlackSmallMiddle"  parent="@android:style/TextAppearance">
+	    <item name="android:textStyle">normal</item>
+	    <item name="android:textColor">@color/home_text_light_black</item>
+	    <item name="android:textSize">15sp</item>
+	</style>
+    <!-- 中浅黑色字体 -->
+	<style name="FontStyleNormalLightBlackMiddle"  parent="@android:style/TextAppearance">
+	    <item name="android:textStyle">normal</item>
+	    <item name="android:textColor">@color/home_text_light_black</item>
+	    <item name="android:textSize">16sp</item>
+	</style>
+
+     <!-- 黑色中字体 -->
+    <style name="FontStyleNormalBlackMiddle" parent="@android:style/TextAppearance">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/textcolor_black</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <!-- 黑色稍大字体 -->
+    <style name="FontStyleNormalBlackBig" parent="@android:style/TextAppearance">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/textcolor_black</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <!-- 黑色大字体 -->
+    <style name="FontStyleNormalBlackBiger" parent="@android:style/TextAppearance">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/textcolor_black</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    <!-- 小浅灰字体 -->
+    <style name="FontStyleNormalGraySmall" parent="@android:style/TextAppearance">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/textcolor_light_grey</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <!-- 中浅灰字体 -->
+    <style name="FontStyleNormalGrayMiddle" parent="@android:style/TextAppearance">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/textcolor_light_grey</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <!-- 稍大浅灰字体 -->
+    <style name="FontStyleNormalGrayBig" parent="@android:style/TextAppearance">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/textcolor_light_grey</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <!-- 绿色小字体 -->
+	<style name="FontStyleNormalGreenSmall"  parent="@android:style/TextAppearance">
+	    <item name="android:textStyle">normal</item>
+	    <item name="android:textColor">@color/textcolor_green</item>
+	    <item name="android:textSize">12sp</item>
+	</style>
+    <!-- 红色小字体 -->
+	<style name="FontStyleNormalRedSmall"  parent="@android:style/TextAppearance">
+	    <item name="android:textStyle">normal</item>
+	    <item name="android:textColor">@color/textcolor_red</item>
+	    <item name="android:textSize">12sp</item>
+	</style>
+    <!-- 红色大字体 -->
+    <style name="FontStyleNormalRedBiger" parent="@android:style/TextAppearance">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/textcolor_red</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    <!-- 橘黄色稍大字体 -->
+    <style name="FontStyleNormalYellowBiger" parent="@android:style/TextAppearance">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/not_surance_yellow</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <!-- 蓝色大字体 -->
+    <style name="FontStyleNormalBlueBiger" parent="@android:style/TextAppearance">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/surance_blue</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    <!-- 蓝色稍大字体 -->
+    <style name="FontStyleNormalBlueBig" parent="@android:style/TextAppearance">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/surance_blue</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <!-- 蓝色中等字体 -->
+    <style name="FontStyleNormalBlueMiddle" parent="@android:style/TextAppearance">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/surance_blue</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+</resources>

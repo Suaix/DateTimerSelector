@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 自定义Dialog的背景颜色 -->
+    <color name="dialog_bg">#ffe74c3c</color>
+    <!-- 自定义Dialog的字体的颜色 -->
+    <color name="text_color">#FFFFFF</color>
+    <!-- 自定义Dialog的标题同内容部分的分割线 -->
+    <color name="divider_color">#11000000</color>
+    <!-- 自定义Dialog信息部分文字的颜色 -->
+    <color name="msg_color">#FFFFFFFF</color>
+    <!-- 自定义Dialog中button点击时的颜色 -->
+    <color name="btn_press_color">#FFa5281b</color>
+    <!-- 自定义Dialog中button未点击时的颜色 -->
+    <color name="btn_unpress_color">#FFc0392b</color>
+    <!-- 黑色字体颜色 -->
+    <color name="textcolor_black">#000000</color>
+    <!-- 浅灰色字体颜色 -->
+    <color name="textcolor_light_grey">#807e7a</color>
+    <!-- 红色字体颜色 -->
+    <color name="textcolor_red">#e30000</color>
+    <!-- 红色字体颜色 -->
+    <color name="textcolor_green">#22ad38</color>
+    <!-- 非保险橘黄色字体颜色 -->
+    <color name="not_surance_yellow">#ffbb38</color>
+    <!-- 保险蓝色字体颜色 -->
+    <color name="surance_blue">#3598da</color>
+    <!-- 浅蓝色字体颜色 -->
+    <color name="light_blue">#E5F2FD</color>
+ <!-- 默认背景颜色，灰白 -->
+    <color name="base_bg">#FBFBFB</color>
+ <!-- 首页上方边框的颜色，深灰 -->
+    <color name="home_border_dark_gray">#E1E1E1</color>
+ <!-- 首页上方三个环形进度条布局的背景颜色，浅灰 -->
+    <color name="home_bg_light_gray">#F5F5F5</color>
+ <!-- 首页上方三个环形进度条文字的颜色，浅黑 -->
+    <color name="home_text_light_black">#333333</color>
+ <!-- 首页上方左侧个人信息代用名文字的颜色，略深黑 -->
+    <color name="home_text_little_dark_black">#323232</color>
+ <!-- 首页上方环形进度条的颜色，蓝色 -->
+    <color name="home_round_progress_bar_blue">#ff3896F3</color>
+ <!-- 首页上方环形进度条的默认颜色，灰色 -->
+    <color name="home_round_progress_bar_default_gray">#D1D1D1</color>
+    
+    <color name="dialog_pressed_bg_color">#919191</color>
+<!-- dialog条目默认的显示的背景 -->
+    <color name="dialog_unpressed_bg_color">#FFFFFF</color>
+    <!-- dialog背景半透明 -->
+    <color name="black_more_half">#55111111</color>
+    <!-- dialog的ok按钮未选择的颜色 -->
+    <color name="tip_dialog_ok_btn_ina_color">#a39b93</color>
+    <!-- dialog的ok按钮选择的颜色 -->
+    <color name="tip_dialog_ok_btn_a_color">#f5f5f5</color>
+    <!-- layoutRipple 的波纹色 淡蓝色 -->
+    <color name="layoutRipple_color">#1E88E5</color>
+    <!-- layoutRipple 的波纹色 淡蓝色 -->
+    <color name="left_item_color">#0000ee</color>
+    
+</resources>

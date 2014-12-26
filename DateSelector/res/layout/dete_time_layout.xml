@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <RelativeLayout
+        android:id="@+id/rl_date_time_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp" >
+
+        <TextView
+            android:id="@+id/tv_date_time_subtitle"
+            style="@style/FontStyleNormalBlackMiddle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:padding="10dp"
+            android:text="日期" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal"
+            android:padding="10dp" >
+
+            <TextView
+                android:id="@+id/tv_date_time_year"
+                style="@style/FontStyleNormalBlueMiddle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2014" />
+
+            <View
+                android:layout_width="5dp"
+                android:layout_height="1dp"
+                android:layout_gravity="center_vertical"
+                android:background="@color/surance_blue" />
+
+            <TextView
+                android:id="@+id/tv_date_time_month"
+                style="@style/FontStyleNormalBlueMiddle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12" />
+
+            <View
+                android:layout_width="5dp"
+                android:layout_height="1dp"
+                android:layout_gravity="center_vertical"
+                android:background="@color/surance_blue" />
+
+            <TextView
+                android:id="@+id/tv_date_time_day"
+                style="@style/FontStyleNormalBlueMiddle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/line_1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/rl_date_time_title"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@color/home_border_dark_gray" />
+
+    <LinearLayout
+        android:id="@+id/ll_wheel_views"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line_1"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal" >
+
+        <com.summerxia.dateselector.wheelview.WheelView
+            android:id="@+id/wv_date_of_year"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <com.summerxia.dateselector.wheelview.WheelView
+            android:id="@+id/wv_date_of_month"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <com.summerxia.dateselector.wheelview.WheelView
+            android:id="@+id/wv_date_of_day"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+</RelativeLayout>
