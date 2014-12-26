@@ -57,7 +57,8 @@ public class DateTimeSelectorDialogBuilder extends NiftyDialogBuilder implements
 
 	private void setDialogProperties() {
 		this.withDialogWindows(800, LayoutParams.WRAP_CONTENT)
-				.withTitleColor("#000000").withDialoagBackGround("#FFFFFF")
+				.withTitleColor("#000000").withTitle("日期")
+				.withDialoagBackGround("#FFFFFF")
 				.setDialogClick(this).withPreviousText("取消")
 				.withPreviousTextColor("#3598da").withDuration(100)
 				.setPreviousLayoutClick(this).withNextText("保存")
