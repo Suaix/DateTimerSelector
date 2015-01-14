@@ -15,13 +15,12 @@ import com.summerxia.dateselector.wheelview.OnWheelChangedListener;
 import com.summerxia.dateselector.wheelview.StrericWheelAdapter;
 import com.summerxia.dateselector.wheelview.WheelView;
 /**
- * 
-  * 项目名称:  PFPS   
-  * 类名称:   PfpsDateWheelView 
+  * 项目名称:  DateSelector   
+  * 类名称:   DateSelectorWheelView 
   * 创建人:    xhl 
-  * 创建时间:  2014-12-23 下午5:51:27     
+  * 创建时间:  2015-1-14 下午5:07:34     
   * 版本:      v1.0  
-  * 类描述:	自定义的日期选择器控件
+  * 类描述:
  */
 public class DateSelectorWheelView extends RelativeLayout implements
 		OnWheelChangedListener {

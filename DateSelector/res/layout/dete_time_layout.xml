@@ -81,19 +81,19 @@
 
         <com.summerxia.dateselector.wheelview.WheelView
             android:id="@+id/wv_date_of_year"
-            android:layout_width="80dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
 
         <com.summerxia.dateselector.wheelview.WheelView
             android:id="@+id/wv_date_of_month"
-            android:layout_width="50dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
 
         <com.summerxia.dateselector.wheelview.WheelView
             android:id="@+id/wv_date_of_day"
-            android:layout_width="50dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
     </LinearLayout>

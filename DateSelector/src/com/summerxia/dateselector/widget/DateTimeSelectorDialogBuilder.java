@@ -54,7 +54,9 @@ public class DateTimeSelectorDialogBuilder extends NiftyDialogBuilder implements
 				.findViewById(R.id.fl_date_time_custom_layout);
 		setDialogProperties();
 	}
-
+	/**
+	 * 设置Dialog的属性
+	 */
 	private void setDialogProperties() {
 		this.withDialogWindows(800, LayoutParams.WRAP_CONTENT)
 				.withTitleColor("#000000").withTitle("日期")
@@ -65,7 +67,6 @@ public class DateTimeSelectorDialogBuilder extends NiftyDialogBuilder implements
 				.withMessageMiss(View.GONE).withNextTextColor("#3598da")
 				.setNextLayoutClick(this)
 				.setCustomView(rlCustomLayout, context);
-
 	}
 
 	/**
