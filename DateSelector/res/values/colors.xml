@@ -27,23 +27,22 @@
     <color name="surance_blue">#3598da</color>
     <!-- 浅蓝色字体颜色 -->
     <color name="light_blue">#E5F2FD</color>
- <!-- 默认背景颜色，灰白 -->
+    <!-- 默认背景颜色，灰白 -->
     <color name="base_bg">#FBFBFB</color>
- <!-- 首页上方边框的颜色，深灰 -->
+    <!-- 首页上方边框的颜色，深灰 -->
     <color name="home_border_dark_gray">#E1E1E1</color>
- <!-- 首页上方三个环形进度条布局的背景颜色，浅灰 -->
+    <!-- 首页上方三个环形进度条布局的背景颜色，浅灰 -->
     <color name="home_bg_light_gray">#F5F5F5</color>
- <!-- 首页上方三个环形进度条文字的颜色，浅黑 -->
+    <!-- 首页上方三个环形进度条文字的颜色，浅黑 -->
     <color name="home_text_light_black">#333333</color>
- <!-- 首页上方左侧个人信息代用名文字的颜色，略深黑 -->
+    <!-- 首页上方左侧个人信息代用名文字的颜色，略深黑 -->
     <color name="home_text_little_dark_black">#323232</color>
- <!-- 首页上方环形进度条的颜色，蓝色 -->
+    <!-- 首页上方环形进度条的颜色，蓝色 -->
     <color name="home_round_progress_bar_blue">#ff3896F3</color>
- <!-- 首页上方环形进度条的默认颜色，灰色 -->
+    <!-- 首页上方环形进度条的默认颜色，灰色 -->
     <color name="home_round_progress_bar_default_gray">#D1D1D1</color>
-    
     <color name="dialog_pressed_bg_color">#919191</color>
-<!-- dialog条目默认的显示的背景 -->
+    <!-- dialog条目默认的显示的背景 -->
     <color name="dialog_unpressed_bg_color">#FFFFFF</color>
     <!-- dialog背景半透明 -->
     <color name="black_more_half">#55111111</color>
@@ -55,5 +54,6 @@
     <color name="layoutRipple_color">#1E88E5</color>
     <!-- layoutRipple 的波纹色 淡蓝色 -->
     <color name="left_item_color">#0000ee</color>
-    
+    <color name="corner_border_color">#F3F4F3</color>
+
 </resources>

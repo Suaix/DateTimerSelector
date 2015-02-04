@@ -1,6 +1,10 @@
 package com.summerxia.dateselector.widget;
 
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -36,14 +40,16 @@ public class DateSelectorWheelView extends RelativeLayout implements
 	private WheelView wvDay;
 	private String[] years = new String[100];
 	private String[] months = new String[12];
-	private String[] tinyDays = new String[29];
-	private String[] smallDays = new String[30];
+	private String[] tinyDays = new String[28];
+	private String[] smallDays = new String[29];
+	private String[] normalDays = new String[30];
 	private String[] bigDays = new String[31];
 	private StrericWheelAdapter yearsAdapter;
 	private StrericWheelAdapter monthsAdapter;
 	private StrericWheelAdapter tinyDaysAdapter;
 	private StrericWheelAdapter smallDaysAdapter;
 	private StrericWheelAdapter bigDaysAdapter;
+	private StrericWheelAdapter normalDaysAdapter;
 
 	public DateSelectorWheelView(Context context, AttributeSet attrs,
 			int defStyleAttr) {
@@ -84,34 +90,110 @@ public class DateSelectorWheelView extends RelativeLayout implements
 			years[i] = 1960 + i + " 年";
 		}
 		for (int i = 0; i < months.length; i++) {
-			months[i] = 1 + i + " 月";
+			if (i < 9) {
+				months[i] = "0" + (1 + i) + " 月";
+			} else {
+				months[i] = (1 + i) + " 月";
+			}
 		}
 		for (int i = 0; i < tinyDays.length; i++) {
-			tinyDays[i] = 1 + i + " 日";
+			if (i < 9) {
+				tinyDays[i] = "0" + (1 + i) + " 日";
+			} else {
+				tinyDays[i] = (1 + i) + " 日";
+			}
 		}
 		for (int i = 0; i < smallDays.length; i++) {
-			smallDays[i] = 1 + i + " 日";
+			if (i < 9) {
+				smallDays[i] = "0" + (1 + i) + " 日";
+			} else {
+				smallDays[i] = (1 + i) + " 日";
+			}
+		}
+		for (int i = 0; i < normalDays.length; i++) {
+			if (i < 9) {
+				normalDays[i] = "0" + (1 + i) + " 日";
+			} else {
+				normalDays[i] = (1 + i) + " 日";
+			}
 		}
 		for (int i = 0; i < bigDays.length; i++) {
-			bigDays[i] = 1 + i + " 日";
+			if (i < 9) {
+				bigDays[i] = "0" + (1 + i) + " 日";
+			} else {
+				bigDays[i] = (1 + i) + " 日";
+			}
 		}
 		yearsAdapter = new StrericWheelAdapter(years);
 		monthsAdapter = new StrericWheelAdapter(months);
 		tinyDaysAdapter = new StrericWheelAdapter(tinyDays);
 		smallDaysAdapter = new StrericWheelAdapter(smallDays);
+		normalDaysAdapter = new StrericWheelAdapter(normalDays);
 		bigDaysAdapter = new StrericWheelAdapter(bigDays);
 		wvYear.setAdapter(yearsAdapter);
-		wvYear.setCurrentItem(years.length / 2);
+		wvYear.setCurrentItem(getTodayYear());
 		wvYear.setCyclic(true);
 		wvMonth.setAdapter(monthsAdapter);
-		wvMonth.setCurrentItem(0);
+		wvMonth.setCurrentItem(getTodayMonth());
 		wvMonth.setCyclic(true);
-		wvDay.setAdapter(smallDaysAdapter);
-		wvDay.setCurrentItem(0);
+		wvDay.setAdapter(normalDaysAdapter);
+		wvDay.setCurrentItem(getTodayDay());
 		wvDay.setCyclic(true);
-		tvYear.setText(DateUtils.splitDateString(wvYear.getCurrentItemValue()));
-		tvMonth.setText(DateUtils.splitDateString(wvMonth.getCurrentItemValue()));
-		tvDay.setText(DateUtils.splitDateString(wvDay.getCurrentItemValue()));
+	}
+	/**
+	 * 获取当前日期的天数的日子
+	 * @return
+	 */
+	private int getTodayDay() {
+		// 2015年12月01日
+		int position = 0;
+		String today = getToday();
+		String day = today.substring(8, 10);
+		day = day + " 日";
+		for (int i = 0; i < bigDays.length; i++) {
+			if (day.equals(bigDays[i])) {
+				position = i;
+				break;
+			}
+		}
+		return position;
+	}
+	/**
+	 * 获取当前日期的月数的位置
+	 * @return
+	 */
+	private int getTodayMonth() {
+		// 2015年12月01日
+		int position = 0;
+		String today = getToday();
+		String month = today.substring(5, 7);
+		month = month + " 月";
+		for (int i = 0; i < months.length; i++) {
+			if (month.equals(months[i])) {
+				position = i;
+				break;
+			}
+		}
+		return position;
+	}
+
+	/**
+	 * 获取当天的年份
+	 * 
+	 * @return
+	 */
+	private int getTodayYear() {
+		int position = 0;
+		String today = getToday();
+		String year = today.substring(0, 4);
+		year = year + " 年";
+		for (int i = 0; i < years.length; i++) {
+			if (year.equals(years[i])) {
+				position = i;
+				break;
+			}
+		}
+		return position;
 	}
 
 	/**
@@ -153,6 +235,7 @@ public class DateSelectorWheelView extends RelativeLayout implements
 	 * 设置当前显示的日期号
 	 * 
 	 * @param day
+	 *            14
 	 */
 	public void setCurrentDay(String day) {
 		day = day + " 日";
@@ -174,22 +257,26 @@ public class DateSelectorWheelView extends RelativeLayout implements
 				+ tvMonth.getText().toString().trim() + "-"
 				+ tvDay.getText().toString().trim();
 	}
+
 	/**
 	 * 设置标题的点击事件
+	 * 
 	 * @param onClickListener
 	 */
-	public void setTitleClick(OnClickListener onClickListener){
+	public void setTitleClick(OnClickListener onClickListener) {
 		rlTitle.setOnClickListener(onClickListener);
 	}
+
 	/**
 	 * 设置日期选择器的日期转轮是否可见
+	 * 
 	 * @param visibility
 	 */
-	public void setDateSelectorVisiblility(int visibility){
+	public void setDateSelectorVisiblility(int visibility) {
 		llWheelViews.setVisibility(visibility);
 	}
-	
-	public int getDateSelectorVisibility(){
+
+	public int getDateSelectorVisibility() {
 		return llWheelViews.getVisibility();
 	}
 
@@ -201,14 +288,17 @@ public class DateSelectorWheelView extends RelativeLayout implements
 	 */
 	private boolean isLeapYear(String year) {
 		int temp = Integer.parseInt(year);
-		return temp % 4 == 0 ? true : false;
+		return temp % 4 == 0 && (temp % 100 != 0 || temp % 400 == 0) ? true
+				: false;
 	}
+
 	/**
 	 * 判断是否是大月
+	 * 
 	 * @param month
 	 * @return
 	 */
-	private boolean isBigMonth(int month){
+	private boolean isBigMonth(int month) {
 		boolean isBigMonth = false;
 		switch (month) {
 		case 1:
@@ -227,25 +317,28 @@ public class DateSelectorWheelView extends RelativeLayout implements
 		}
 		return isBigMonth;
 	}
-	
+
 	int currentMonth = 1;
+
 	@Override
 	public void onChanged(WheelView wheel, int oldValue, int newValue) {
 		String trim = null;
 		switch (wheel.getId()) {
 		case R.id.wv_date_of_year:
-			trim = DateUtils.splitDateString(
-					wvYear.getCurrentItemValue()).trim();
+			trim = DateUtils.splitDateString(wvYear.getCurrentItemValue())
+					.trim();
 			tvYear.setText(trim);
 			if (isLeapYear(trim)) {
 				if (currentMonth == 2) {
-					wvDay.setAdapter(tinyDaysAdapter);
-				} else if(isBigMonth(currentMonth)){
+					wvDay.setAdapter(smallDaysAdapter);
+				} else if (isBigMonth(currentMonth)) {
 					wvDay.setAdapter(bigDaysAdapter);
 				} else {
-					wvDay.setAdapter(smallDaysAdapter);
+					wvDay.setAdapter(normalDaysAdapter);
 				}
-			} else if(isBigMonth(currentMonth)){
+			} else if (currentMonth == 2) {
+				wvDay.setAdapter(tinyDaysAdapter);
+			} else if (isBigMonth(currentMonth)) {
 				wvDay.setAdapter(bigDaysAdapter);
 			} else {
 				wvDay.setAdapter(smallDaysAdapter);
@@ -270,9 +363,9 @@ public class DateSelectorWheelView extends RelativeLayout implements
 				String yearString = DateUtils.splitDateString(
 						wvYear.getCurrentItemValue()).trim();
 				if (isLeapYear(yearString)) {
-					wvDay.setAdapter(tinyDaysAdapter);
-				} else {
 					wvDay.setAdapter(smallDaysAdapter);
+				} else {
+					wvDay.setAdapter(tinyDaysAdapter);
 				}
 				break;
 			default:
@@ -281,10 +374,23 @@ public class DateSelectorWheelView extends RelativeLayout implements
 			}
 			break;
 		case R.id.wv_date_of_day:
-			tvDay.setText(DateUtils
-					.splitDateString(wvDay.getCurrentItemValue()).trim());
+			tvDay.setText(DateUtils.splitDateString(wvDay.getCurrentItemValue())
+					.trim());
 			break;
 		}
+	}
+
+	/**
+	 * 获取今天的日期
+	 * 
+	 * @return
+	 */
+	@SuppressLint("SimpleDateFormat")
+	private String getToday() {
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy年MM月dd日");
+		Date curDate = new Date(System.currentTimeMillis());// 获取当前时间
+		String str = formatter.format(curDate);
+		return str;
 	}
 
 }

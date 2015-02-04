@@ -23,6 +23,7 @@ public final class R {
         /**  自定义Dialog中button未点击时的颜色 
          */
         public static final int btn_unpress_color=0x7f040005;
+        public static final int corner_border_color=0x7f04001b;
         /**  自定义Dialog的背景颜色 
          */
         public static final int dialog_bg=0x7f040000;
@@ -107,18 +108,21 @@ public final class R {
         public static final int btn_selector=0x7f020002;
         public static final int btn_unpress=0x7f020003;
         public static final int dialog_bg=0x7f020004;
-        public static final int ic_launcher=0x7f020005;
-        public static final int wheel_bg=0x7f020006;
-        public static final int wheel_val=0x7f020007;
+        public static final int edit_dialog_coner=0x7f020005;
+        public static final int ic_launcher=0x7f020006;
+        public static final int top_left_right_coner=0x7f020007;
+        public static final int wheel_bg=0x7f020008;
+        public static final int wheel_val=0x7f020009;
     }
     public static final class id {
-        public static final int action_settings=0x7f090021;
+        public static final int action_settings=0x7f090022;
         public static final int alertTitle=0x7f090015;
         public static final int bt=0x7f090000;
-        public static final int button1=0x7f09001e;
-        public static final int button2=0x7f09001f;
+        public static final int button1=0x7f09001f;
+        public static final int button2=0x7f090020;
         public static final int contentPanel=0x7f09001b;
         public static final int customPanel=0x7f09001d;
+        public static final int dialog_line=0x7f09001e;
         public static final int fl_custom_next_layout=0x7f090019;
         public static final int fl_date_time_custom_layout=0x7f090003;
         public static final int fl_dialog_title_next=0x7f090016;
@@ -132,7 +136,7 @@ public final class R {
         public static final int parentPanel=0x7f09000f;
         public static final int pdwv_date_time_selector_wheelView=0x7f090002;
         public static final int rl_date_time_title=0x7f090004;
-        public static final int shape_bacground=0x7f090020;
+        public static final int shape_bacground=0x7f090021;
         public static final int titleDivider=0x7f09001a;
         public static final int title_template=0x7f090011;
         public static final int topPanel=0x7f090010;

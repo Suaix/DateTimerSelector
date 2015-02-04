@@ -60,4 +60,11 @@ public class StrericWheelAdapter implements WheelAdapter {
 		int maxLen=5;
 		return maxLen;
 	}
+
+
+	@Override
+	public String getCurrentId(int index) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

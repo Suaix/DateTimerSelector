@@ -28,7 +28,6 @@ https://github.com/android/platform_frameworks_base/blob/master/core/res/res/lay
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:background="@drawable/dialog_bg"
         android:clickable="false"
         android:orientation="vertical"
         android:visibility="visible" >
@@ -39,15 +38,13 @@ https://github.com/android/platform_frameworks_base/blob/master/core/res/res/lay
             android:id="@+id/topPanel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#22000000"
+            android:background="@drawable/top_left_right_coner"
             android:orientation="vertical" >
 
             <RelativeLayout
                 android:id="@+id/title_template"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginEnd="16dip"
-                android:layout_marginStart="16dip" >
+                android:layout_height="48dp" >
 
                 <FrameLayout
                     android:id="@+id/fl_dialog_title_previous"
@@ -55,7 +52,9 @@ https://github.com/android/platform_frameworks_base/blob/master/core/res/res/lay
                     android:layout_height="match_parent"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
-                    android:layout_margin="8dip" >
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp" >
 
                     <ImageView
                         android:id="@+id/icon"
@@ -67,21 +66,19 @@ https://github.com/android/platform_frameworks_base/blob/master/core/res/res/lay
 
                     <TextView
                         android:id="@+id/tv_dialog_title_previous_text"
-                        style="?android:attr/textAppearanceMedium"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:text="@string/str_turn_back"
+                        android:text="返回"
                         android:visibility="gone" />
                 </FrameLayout>
 
                 <TextView
                     android:id="@+id/alertTitle"
-                    style="@style/DialogWindowTitle"
+                    style="@style/FontStyleNormalLightBlackMiddle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:layout_marginLeft="8dip"
                     android:ellipsize="end"
                     android:gravity="center"
                     android:singleLine="true" />
@@ -92,7 +89,9 @@ https://github.com/android/platform_frameworks_base/blob/master/core/res/res/lay
                     android:layout_height="match_parent"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_margin="8dip" >
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp" >
 
                     <ImageView
                         android:id="@+id/iv_dialog_title_next_img"
@@ -104,7 +103,6 @@ https://github.com/android/platform_frameworks_base/blob/master/core/res/res/lay
 
                     <TextView
                         android:id="@+id/tv_dialog_title_next_text"
-                        style="?android:attr/textAppearanceMedium"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -127,7 +125,7 @@ https://github.com/android/platform_frameworks_base/blob/master/core/res/res/lay
                 android:id="@+id/titleDivider"
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:background="@color/divider_color"
+                android:background="@color/corner_border_color"
                 android:visibility="visible" />
         </LinearLayout>
         <!-- Dialog的消息 -->
@@ -161,6 +159,17 @@ https://github.com/android/platform_frameworks_base/blob/master/core/res/res/lay
             android:layout_height="wrap_content"
             android:layout_weight="1" >
         </FrameLayout>
+
+        <View
+            android:id="@+id/dialog_line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="8dp"
+            android:background="#E1E1E1"
+            android:visibility="gone" />
         <!-- 底部按钮 -->
 
         <LinearLayout

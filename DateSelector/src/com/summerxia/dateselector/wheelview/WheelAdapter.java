@@ -38,4 +38,6 @@ public interface WheelAdapter {
 	 * @return the maximum item length or -1
 	 */
 	public int getMaximumLength();
+	
+	public String getCurrentId(int index);
 }

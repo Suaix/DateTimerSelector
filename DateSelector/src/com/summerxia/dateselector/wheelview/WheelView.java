@@ -46,137 +46,99 @@ import android.view.animation.Interpolator;
 import android.widget.Scroller;
 
 import com.summerxia.dateselector.R;
+import com.summerxia.dateselector.utils.DateUtils;
 
+/**
+ * 项目名称: qingyouhui 类名称: WheelView 创建人: xhl 创建时间: 2014-12-22 下午7:09:53 版本: v1.0
+ * 类描述: 日期选择器，轮转
+ */
 public class WheelView extends View {
-	/**
-	 * wheelview滚动的时间长度
-	 */
+	/** Scrolling duration */
 	private static final int SCROLLING_DURATION = 400;
-	/**
-	 * 滚动时的最小透明度
-	 */
+
+	/** Minimum delta for scrolling */
 	private static final int MIN_DELTA_FOR_SCROLLING = 1;
-	/**
-	 * 当前选中的Item或label的颜色
-	 */
+
+	/** Current value & label text color */
 	private static final int VALUE_TEXT_COLOR = 0xFF000000;
-	/**
-	 * Items的颜色
-	 */
+
+	/** Items text color */
 	private static final int ITEMS_TEXT_COLOR = 0xFFE1E1E1;
-	/**
-	 * 顶部和底部阴影的颜色
-	 */
+
+	/** Top and bottom shadows colors */
 	private static final int[] SHADOWS_COLORS = new int[] { 0xFFFFFFF,
 			0x00AAAAAA, 0x00AAAAAA };
-	/**
-	 * 附加的items的高度
-	 */
-	private static final int ADDITIONAL_ITEM_HEIGHT = 65;
-	/**
-	 * 字号
-	 */
-	private static final int TEXT_SIZE = 40;
-	/** 顶部和底部items的偏移量 */
-	private static final int ITEM_OFFSET = TEXT_SIZE / 8;
-	/** itmes布局的额外宽度 */
+
+	/** Additional items height (is added to standard text item height) */
+	private static final int ADDITIONAL_ITEM_HEIGHT = 40;
+
+	/** Text size */
+	// private static final int TEXT_SIZE = 45;
+	private int TEXT_SIZE = 18;
+
+	/** Top and bottom items offset (to hide that) */
+	// private static final int ITEM_OFFSET = TEXT_SIZE / 10;
+	private int ITEM_OFFSET = TEXT_SIZE / 10;
+
+	/** Additional width for items layout */
 	private static final int ADDITIONAL_ITEMS_SPACE = 10;
-	/** 标签的偏移量 */
+
+	/** Label offset */
 	private static final int LABEL_OFFSET = 8;
-	/** 左右的padding值 */
+
+	/** Left and right padding value */
 	private static final int PADDING = 10;
-	/** 默认显示的item的个数 */
+
+	/** Default count of visible items */
 	private static final int DEF_VISIBLE_ITEMS = 5;
-	/**
-	 * wheelView的适配器
-	 */
+
+	// Wheel Values
 	private WheelAdapter adapter = null;
-	/**
-	 * 当前选中的item的位置
-	 */
 	private int currentItem = 0;
-	/**
-	 * item的宽度
-	 */
+
+	// Widths
 	private int itemsWidth = 0;
-	/**
-	 * 标签的宽度
-	 */
 	private int labelWidth = 0;
-	//可见的Item的个数
+
+	// Count of visible items
 	private int visibleItems = DEF_VISIBLE_ITEMS;
-	/**
-	 * Item的高度
-	 */
+
+	// Item height
 	private int itemHeight = 0;
-	/**
-	 * items的文本画笔
-	 */
+
+	// Text paints
 	private TextPaint itemsPaint;
-	/**
-	 * item的值的画笔
-	 */
 	private TextPaint valuePaint;
-	/**
-	 * items静态布局
-	 */
+
+	// Layouts
 	private StaticLayout itemsLayout;
-	/**
-	 * 标签的静态布局
-	 */
 	private StaticLayout labelLayout;
-	/**
-	 * 值的静态布局
-	 */
 	private StaticLayout valueLayout;
-	/**
-	 * 标签值
-	 */
+
+	// Label & background
 	private String label;
-	/**
-	 * 中间选中item的背景
-	 */
 	private Drawable centerDrawable;
-	/**
-	 * 顶部阴影
-	 */
+
+	// Shadows drawables
 	private GradientDrawable topShadow;
-	/**
-	 * 底部阴影
-	 */
 	private GradientDrawable bottomShadow;
-	/**
-	 * 滑动图标是否显示
-	 */
+
+	// Scrolling
 	private boolean isScrollingPerformed;
-	/**
-	 * 滑动图标的偏移量
-	 */
 	private int scrollingOffset;
-	/**
-	 * 滑动的手势识别器
-	 */
+
+	// Scrolling animation
 	private GestureDetector gestureDetector;
-	/**
-	 * 滚动器
-	 */
 	private Scroller scroller;
-	/**
-	 * 最后滑动的Y的位置
-	 */
 	private int lastScrollY;
-	/**
-	 * 是否循环滑动
-	 */
+
+	// Cyclic
 	boolean isCyclic = false;
-	/**
-	 * 滚轮改变监听器集合
-	 */
+
+	// Listeners
 	private List<OnWheelChangedListener> changingListeners = new LinkedList<OnWheelChangedListener>();
-	/**
-	 * 滚轮滚动监听器集合
-	 */
 	private List<OnWheelScrollListener> scrollingListeners = new LinkedList<OnWheelScrollListener>();
+
 	/**
 	 * Constructor
 	 */
@@ -202,7 +164,7 @@ public class WheelView extends View {
 	}
 
 	/**
-	 * 初始化类的数据
+	 * Initializes class data
 	 * 
 	 * @param context
 	 *            the context
@@ -210,11 +172,14 @@ public class WheelView extends View {
 	private void initData(Context context) {
 		gestureDetector = new GestureDetector(context, gestureListener);
 		gestureDetector.setIsLongpressEnabled(false);
+
 		scroller = new Scroller(context);
+		TEXT_SIZE = DateUtils.dip2Px(context, TEXT_SIZE);
+		ITEM_OFFSET = DateUtils.dip2Px(context, ITEM_OFFSET);
 	}
 
 	/**
-	 * 获取滚轮的适配器
+	 * Gets wheel adapter
 	 * 
 	 * @return the adapter
 	 */
@@ -441,7 +406,7 @@ public class WheelView extends View {
 	}
 
 	/**
-	 * 初始化布局
+	 * Invalidates layouts
 	 */
 	private void invalidateLayouts() {
 		itemsLayout = null;
@@ -489,10 +454,11 @@ public class WheelView extends View {
 			bottomShadow = new GradientDrawable(Orientation.BOTTOM_TOP,
 					SHADOWS_COLORS);
 		}
-
-		setBackgroundResource(R.drawable.wheel_bg);
+		Drawable drawable = this.getBackground();
+//		setBackgroundResource(R.drawable.wheel_bg);
+		setBackgroundDrawable(drawable);
 	}
-
+	
 	/**
 	 * Calculates desired height for layout
 	 * 
@@ -799,7 +765,7 @@ public class WheelView extends View {
 	 */
 	private void drawValue(Canvas canvas) {
 		valuePaint.setColor(VALUE_TEXT_COLOR);
-		valuePaint.setTextSize(45);
+		valuePaint.setTextSize(TEXT_SIZE);
 		valuePaint.drawableState = getDrawableState();
 
 		Rect bounds = new Rect();
@@ -847,7 +813,13 @@ public class WheelView extends View {
 	 * @return
 	 */
 	public String getCurrentItemValue() {
-		return ((StrericWheelAdapter) getAdapter()).getStrContents()[getCurrentItem()];
+		// return
+		// ((StrericWheelAdapter)getAdapter()).getStrContents()[getCurrentItem()];
+		return getAdapter().getItem(getCurrentItem());
+	}
+
+	public String getCurrentItemId() {
+		return getAdapter().getCurrentId(getCurrentItem());
 	}
 
 	/**
@@ -924,9 +896,7 @@ public class WheelView extends View {
 		}
 	}
 
-	/**
-	 * 手势滑动监听器
-	 */
+	// gesture listener
 	private SimpleOnGestureListener gestureListener = new SimpleOnGestureListener() {
 		public boolean onDown(MotionEvent e) {
 			if (isScrollingPerformed) {

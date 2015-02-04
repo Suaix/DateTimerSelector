@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 白色圆角 -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:bottom="1dp"
+        android:top="1dp">
+        <shape>
+            <solid android:color="@color/dialog_unpressed_bg_color" />
+            
+            <corners android:radius="8dp" />
+
+            <stroke
+                android:color="@color/corner_border_color" />
+        </shape>
+    </item>
+</layer-list>

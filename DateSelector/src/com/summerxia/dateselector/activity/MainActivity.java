@@ -11,7 +11,6 @@ import android.widget.TextView;
 import com.summerxia.dateselector.R;
 import com.summerxia.dateselector.widget.DateTimeSelectorDialogBuilder;
 import com.summerxia.dateselector.widget.DateTimeSelectorDialogBuilder.OnSaveListener;
-import com.summerxia.dateselector.widget.DateSelectorWheelView;
 
 public class MainActivity extends Activity implements OnClickListener, OnSaveListener {
 	private Button button;
@@ -29,7 +28,6 @@ public class MainActivity extends Activity implements OnClickListener, OnSaveLis
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
@@ -37,15 +35,15 @@ public class MainActivity extends Activity implements OnClickListener, OnSaveLis
 	@Override
 	public void onClick(View v) {
 		if (dialogBuilder == null) {
-			dialogBuilder = new DateTimeSelectorDialogBuilder(this, v);
+			dialogBuilder = DateTimeSelectorDialogBuilder.getInstance(this);
 			dialogBuilder.setOnSaveListener(this);
 		}
 		dialogBuilder.show();
 	}
 
 	@Override
-	public void onSaveSelectedDate(DateSelectorWheelView dateWheelView, View view) {
-		daTextView.setText(dateWheelView.getSelectedDate());
+	public void onSaveSelectedDate(String selectedDate) {
+		daTextView.setText(selectedDate);
 	}
 
 }
