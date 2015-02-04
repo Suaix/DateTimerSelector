@@ -57,7 +57,7 @@ public class StrericWheelAdapter implements WheelAdapter {
 	 * 设置最大的宽度
 	 */
 	public int getMaximumLength() {
-		int maxLen=5;
+		int maxLen=7;
 		return maxLen;
 	}
 
