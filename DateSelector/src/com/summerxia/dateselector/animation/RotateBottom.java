@@ -1,4 +1,4 @@
-package com.summerxia.dateselector.widget;
+package com.summerxia.dateselector.animation;
 
 import android.view.View;
 
@@ -7,13 +7,13 @@ import com.nineoldandroids.animation.ObjectAnimator;
 /**
  * Created by lee on 2014/7/31.
  */
-public class Fall extends BaseEffects{
+public class RotateBottom extends BaseEffects{
 
     @Override
     protected void setupAnimation(View view) {
         getAnimatorSet().playTogether(
-                ObjectAnimator.ofFloat(view, "scaleX", 2, 1.5f, 1).setDuration(mDuration),
-                ObjectAnimator.ofFloat(view,"scaleY",2,1.5f,1).setDuration(mDuration),
+                ObjectAnimator.ofFloat(view, "rotationX",90, 0).setDuration(mDuration),
+                ObjectAnimator.ofFloat(view, "translationY", 300, 0).setDuration(mDuration),
                 ObjectAnimator.ofFloat(view, "alpha", 0, 1).setDuration(mDuration*3/2)
 
         );

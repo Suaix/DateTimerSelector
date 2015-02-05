@@ -1,4 +1,4 @@
-package com.summerxia.dateselector.widget;
+package com.summerxia.dateselector.animation;
 
 import android.view.View;
 

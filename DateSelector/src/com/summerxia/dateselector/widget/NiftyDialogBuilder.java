@@ -18,6 +18,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.summerxia.dateselector.R;
+import com.summerxia.dateselector.animation.BaseEffects;
+import com.summerxia.dateselector.animation.Effectstype;
 
 /**
  * 
