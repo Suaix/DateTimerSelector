@@ -136,7 +136,17 @@ public class DateSelectorWheelView extends RelativeLayout implements
 		wvMonth.setAdapter(monthsAdapter);
 		wvMonth.setCurrentItem(getTodayMonth());
 		wvMonth.setCyclic(true);
-		wvDay.setAdapter(normalDaysAdapter);
+		if (isBigMonth(getTodayMonth() + 1)) {
+			wvDay.setAdapter(bigDaysAdapter);
+		} else if (getTodayMonth() == 1
+				&& isLeapYear(wvYear.getCurrentItemValue().subSequence(0, 4)
+						.toString().trim())) {
+			wvDay.setAdapter(smallDaysAdapter);
+		} else if (getTodayMonth() == 1) {
+			wvDay.setAdapter(tinyDaysAdapter);
+		} else {
+			wvDay.setAdapter(normalDaysAdapter);
+		}
 		wvDay.setCurrentItem(getTodayDay());
 		wvDay.setCyclic(true);
 	}
