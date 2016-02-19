@@ -379,9 +379,10 @@ public class DateSelectorWheelView extends RelativeLayout implements
 				}
 				break;
 			default:
-				wvDay.setAdapter(smallDaysAdapter);
+				wvDay.setAdapter(normalDaysAdapter);
 				break;
 			}
+			wvDay.setCurrentItem(0);
 			break;
 		case R.id.wv_date_of_day:
 			tvDay.setText(DateUtils.splitDateString(wvDay.getCurrentItemValue())
